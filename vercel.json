@@ -1,0 +1,6 @@
+{
+  "framework": "vite",
+  "buildCommand": "cd validify && npm run build",
+  "installCommand": "cd validify && npm install",
+  "outputDirectory": "validify/dist"
+}
