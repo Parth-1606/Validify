@@ -1,3 +1,4 @@
+
 # AI SaaS Validator
 
 A Fullstack application that uses Google's Gemini AI to validate and analyze SaaS startup ideas.
