@@ -734,9 +734,9 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/login" className="w-full py-3 px-4 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl text-center transition-colors">
-                  Get Started Free
-                </Link>
+                <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-full py-3 px-4 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl text-center transition-colors">
+                  Start Validating
+                </button>
               </motion.div>
 
               {/* Pro */}
