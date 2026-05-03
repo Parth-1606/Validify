@@ -1,6 +1,14 @@
 {
-  "framework": "vite",
-  "buildCommand": "cd validify && npm run build",
-  "installCommand": "cd validify && npm install",
-  "outputDirectory": "validify/dist"
+  "buildCommand": "cd validify && npm install && npm run build",
+  "outputDirectory": "validify/dist",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
+  ]
 }
