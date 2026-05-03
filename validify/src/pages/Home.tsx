@@ -81,11 +81,9 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [loadingStep, setLoadingStep] = useState(0);
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [history, setHistory] = useState<any[]>([]);
 
   useEffect(() => {
-    setIsAuthenticated(localStorage.getItem('isAuthenticated') === 'true');
     const saved = localStorage.getItem('validify_history');
     if (saved) {
       try { setHistory(JSON.parse(saved)); } catch (e) {}
