@@ -5,7 +5,7 @@ import {
   BarChart3, ShieldAlert, Lightbulb, Sparkles, LogIn, ChevronDown, 
   Brain, Globe, TrendingUp, MessageSquare, ShieldCheck, Star, ChevronUp,
   Briefcase, Code, LineChart, Building, FileText, Box, Database, Cloud, Check,
-  Calculator, List, BookOpen, Wrench
+  Calculator, List, BookOpen, Wrench, Search
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import ValidationReport from '../components/ValidationReport';
@@ -256,8 +256,8 @@ export default function Home() {
                         </>
                       ) : (
                         <>
-                          Validate Idea
-                          <ArrowRight className="w-5 h-5" />
+                          Search
+                          <Search className="w-5 h-5" />
                         </>
                       )}
                     </motion.button>
