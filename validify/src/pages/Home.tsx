@@ -107,10 +107,6 @@ export default function Home() {
 
   const handleValidate = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isAuthenticated) {
-      navigate('/login');
-      return;
-    }
     if (!idea.trim()) return;
 
     setLoading(true);
@@ -150,7 +146,7 @@ export default function Home() {
 
   return (
     <div className="flex h-screen bg-neutral-950 text-neutral-50 font-sans selection:bg-emerald-500/30 overflow-hidden">
-      {isAuthenticated && result && (
+      {result && (
         <Sidebar 
           onNewIdea={() => { setResult(null); setIdea(''); }} 
           history={history} 
@@ -202,26 +198,6 @@ export default function Home() {
               <Link to="/pricing" className="hover:text-neutral-50 transition-colors">Pricing</Link>
             </nav>
             <div className="w-px h-6 bg-neutral-800 hidden md:block"></div>
-            {isAuthenticated ? (
-              <button 
-                onClick={() => {
-                  localStorage.removeItem('isAuthenticated');
-                  setIsAuthenticated(false);
-                }}
-                className="flex items-center gap-2 text-sm font-medium text-neutral-300 hover:text-emerald-400 transition-colors"
-              >
-                <LogIn className="w-4 h-4" />
-                <span>Sign Out</span>
-              </button>
-            ) : (
-              <Link 
-                to="/login" 
-                className="flex items-center gap-2 text-sm font-medium text-neutral-300 hover:text-emerald-400 transition-colors"
-              >
-                <LogIn className="w-4 h-4" />
-                <span>Sign In</span>
-              </Link>
-            )}
           </motion.div>
         </div>
       </header>
@@ -270,7 +246,7 @@ export default function Home() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       type="submit"
-                      disabled={loading || (isAuthenticated && !idea.trim())}
+                      disabled={loading || !idea.trim()}
                       className={`sm:w-auto w-full px-6 py-3 font-bold rounded-xl transition-all disabled:opacity-80 disabled:cursor-not-allowed flex items-center justify-center gap-2 whitespace-nowrap shadow-lg ${
                         loading ? 'bg-emerald-500 text-neutral-950 shadow-[0_0_20px_rgba(16,185,129,0.3)]' : 'bg-emerald-500 hover:bg-emerald-400 text-neutral-950 shadow-[0_0_20px_rgba(16,185,129,0.3)]'
                       }`}
@@ -279,11 +255,6 @@ export default function Home() {
                         <>
                           <Loader2 className="w-5 h-5 animate-spin" />
                           Analyzing...
-                        </>
-                      ) : !isAuthenticated ? (
-                        <>
-                          Sign in to Validate
-                          <ArrowRight className="w-5 h-5" />
                         </>
                       ) : (
                         <>
